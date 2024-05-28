@@ -12,7 +12,7 @@ De um lado, temos o casal John e Lisa com uma idade mediana de 33 anos, brancos 
 
 Do outro lado, temos Ruth e Franklin, com 66 anos e brancos. Ruth ganha menos que $40k e possui ensino médio ou menos, enquanto Franklin ganha mais de $125k e possui ensino superior completo.
 
-![https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/personas.png]
+![Personas](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/personas.png)
 
 ## Parte 1
 
