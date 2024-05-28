@@ -70,4 +70,57 @@ Dado o p-valor extremamente pequeno, podemos rejeitar a hipótese nula de que n�
 
 ## Parte 2 - O QUE É CONSIDERADO SER UM BOM AMERICANO
 
-### P2.1: Um nível educacional maior implica em maior responsabilidade em relação a votar?
+### P2.1.: Um nível educacional maior implica em maior responsabilidade em relação a votar?
+Inicialmente, os valores "-1" para a "importancia de votar" votar desconsiderados. Foram registrados 35 casos (0.6%) da base total.
+
+Todos os niveis de escolaridade consideram, majoritariamente, votar como muito importante, representando 82% do entrevistados. Nota-se que com a reducao da escolaridade, o "Not at all importante" apresenta um level aumento, ainda que pequeno quando analisado o total de respondentes. 
+
+![Importancia de Votar e Escolaridade](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/importancia_votar_escolaridade_modelo_2_ajuste_cores.png)
+
+### P2.2. Dentre os não-brancos, o que é mais importante para ser um bom americano: votar em eleições, demonstrar a bandeira americana ou apoiar o exército? Existe uma diferença na preferência de não-brancos de maior poder aquisitivo vs menor poder aquisitivo?
+
+Considerando os tres itens avaliados (Votar, Demostrar Bandeira, Apoiar Exercito), a maioria parcela dos respondentes nao-brancos afirma que votar e o mais importante, seguido por apoiar o exercito. E interessante notar que o item "demonstrar bandeira" aparece com quantidades similares para todos os niveis de importancia.
+
+![Importance para ser um bom americano - nao brancos](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/importante_ser_americano_nao_branco.png)
+
+Analisando o gráfico com a divisão por renda, as pessoas com maior renda apresentam maior proporção em relação a votar do que aquelas com menor renda. Embora apresentem proporções diferentes, "votar" aparece em primeiro lugar, "apoiar o exército" em segundo, e "demonstrar a bandeira" como terceiro em relação às proporções.
+
+![Importance para ser um bom americano - nao brancos | Renda](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/importante_ser_americano_renda.png)
+
+*Observacao: para um futuro trabalho, analisar o comportamento de cada grupo, nao considerando o total de nao-brancos para identificar se ha diferencas entre as racas.*
+
+### P2.3. Considerando que respeitar a opinião dos outros (Q2_8) é um indício de tolerância, ao compararmos as gerações de 18-30 anos, 31-50 anos e +51, qual é a mais tolerante e a menos tolerante? 
+
+Pessoas de todas as faixas etárias consideram muito importante respeitar a opinião dos outros. No gráfico abaixo, é possível perceber que, para pessoas mais jovens, há uma discrepância nas "distâncias" entre as barras, ou seja, atribuem menor "importância" a opiniões divergentes do que os adultos.
+
+![Respeitar a opiniao](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/respeitar_opiniao_faixa_etaria.png)
+
+## Parte 3 - - ESCOLHAS PARTIDÁRIAS
+### P3.1. Qual escolha partidária, incluindo pessoas sem partido (Q30), possui eleitores mais jovens? E qual possui mais mulheres como apoiadoras?
+
+Os eleitores mais jovens (978 respondentes) destacam-se como apoiadores dos Democratas, representando 36,7%, em seguida, dos independentes correspondente a 26,2%. Nota-se que o apoio aos "Republicanos" e "Outros" apresentam valores absolutos similares.
+
+![Partido politico](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/partido_politico_faixa_etaria.png)
+
+Em relacao as mulheres, temos uma maior apoio no **Partido Democrata**, seguido pelo **Partido Republicano**.
+
+![Mulheres e partidos politicos](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/apoio_feminino_partido.png)
+
+### P3.2. - Qual o perfil do público sem partido (independent ou no preference), em termos de idade e gênero? E dos republicanos? E dos democratas? 
+
+**Genero**
+
+- Another/No preference (Outro/Sem preferência): 54% dos indivíduos que não têm preferência política são mulheres, enquanto 46% são homens.
+- Democratas: A proporção de mulheres entre os democratas é de 54%, e a de homens é de 45.8%.
+- Independente: Entre os independentes, 39% são mulheres e 61% são homens.
+- Republicanos: Os republicanos têm uma proporção de 51% de mulheres e 49.1% de homens.
+A proporção de homens e mulheres varia entre os diferentes grupos políticos, com os independentes tendo a maior proporção de homens (61%) e os democratas a maior proporção de mulheres (54%).
+
+**Idade**
+- Another/No preference (Outro/Sem preferência): A idade mediana é 42 anos, com uma idade média de 45.3 anos. O desvio padrão é 15.7 anos, indicando a variação na idade dos indivíduos desse grupo. A menor idade é 22 anos e a maior idade é 85 anos.
+- Democratas: A idade mediana é 55 anos, e a idade média é 51.9 anos, com um desvio padrão de 17.3 anos. A idade varia entre 22 e 94 anos.
+- Independente: A idade mediana dos independentes é 53 anos, com uma idade média de 51.4 anos e um desvio padrão de 17.3 anos. A idade mínima é 22 anos e a máxima é 92 anos.
+- Republicanos: A idade mediana é 57 anos, com uma média de 54.7 anos. O desvio padrão é 16.3 anos, e a idade varia entre 22 e 90 anos.
+Os republicanos têm a maior idade mediana (57 anos) e média (54.7 anos), enquanto o grupo sem preferência tem as menores idades medianas (42 anos) e médias (45.3 anos).
+
+![Resumo - Perfil/Partido](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/tabela_perfil_partido.png)
