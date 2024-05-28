@@ -61,7 +61,7 @@ Analisando a tabela, percebe-se que ha uma correlacao positiva entre o nivel edu
 ![Renda e Nivel Educacional](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/nivel_educacional_renda.png)
 
 Foi realizado um teste Qui-quadrado apenas para avaliar os dados.
-- X-squared: 1155.5
+- X2: 1155.5
 - Graus de liberdade (df): 6
 - p-valor: < 2.2e-16
 
@@ -110,17 +110,76 @@ Em relacao as mulheres, temos uma maior apoio no **Partido Democrata**, seguido 
 
 **Genero**
 
-- Another/No preference (Outro/Sem preferência): 54% dos indivíduos que não têm preferência política são mulheres, enquanto 46% são homens.
-- Democratas: A proporção de mulheres entre os democratas é de 54%, e a de homens é de 45.8%.
-- Independente: Entre os independentes, 39% são mulheres e 61% são homens.
-- Republicanos: Os republicanos têm uma proporção de 51% de mulheres e 49.1% de homens.
+- **Another/No preference (Outro/Sem preferência)**: 54% dos indivíduos que não têm preferência política são mulheres, enquanto 46% são homens.
+- **Democratas**: A proporção de mulheres entre os democratas é de 54%, e a de homens é de 45.8%.
+- **Independente**: Entre os independentes, 39% são mulheres e 61% são homens.
+- **Republicanos**: Os republicanos têm uma proporção de 51% de mulheres e 49.1% de homens.
 A proporção de homens e mulheres varia entre os diferentes grupos políticos, com os independentes tendo a maior proporção de homens (61%) e os democratas a maior proporção de mulheres (54%).
 
 **Idade**
-- Another/No preference (Outro/Sem preferência): A idade mediana é 42 anos, com uma idade média de 45.3 anos. O desvio padrão é 15.7 anos, indicando a variação na idade dos indivíduos desse grupo. A menor idade é 22 anos e a maior idade é 85 anos.
-- Democratas: A idade mediana é 55 anos, e a idade média é 51.9 anos, com um desvio padrão de 17.3 anos. A idade varia entre 22 e 94 anos.
-- Independente: A idade mediana dos independentes é 53 anos, com uma idade média de 51.4 anos e um desvio padrão de 17.3 anos. A idade mínima é 22 anos e a máxima é 92 anos.
-- Republicanos: A idade mediana é 57 anos, com uma média de 54.7 anos. O desvio padrão é 16.3 anos, e a idade varia entre 22 e 90 anos.
+- **Another/No preference (Outro/Sem preferência)**: A idade mediana é 42 anos, com uma idade média de 45.3 anos. O desvio padrão é 15.7 anos, indicando a variação na idade dos indivíduos desse grupo. A menor idade é 22 anos e a maior idade é 85 anos.
+- **Democratas**: A idade mediana é 55 anos, e a idade média é 51.9 anos, com um desvio padrão de 17.3 anos. A idade varia entre 22 e 94 anos.
+- **Independente**: A idade mediana dos independentes é 53 anos, com uma idade média de 51.4 anos e um desvio padrão de 17.3 anos. A idade mínima é 22 anos e a máxima é 92 anos.
+- **Republicanos**: A idade mediana é 57 anos, com uma média de 54.7 anos. O desvio padrão é 16.3 anos, e a idade varia entre 22 e 90 anos.
 Os republicanos têm a maior idade mediana (57 anos) e média (54.7 anos), enquanto o grupo sem preferência tem as menores idades medianas (42 anos) e médias (45.3 anos).
 
 ![Resumo - Perfil/Partido](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/tabela_perfil_partido.png)
+
+### P3.3. Existe uma correlação entre idade e propensão a votos (voter_category)?
+
+Para avaliar se existe uma correlacao entre a idade e os grupos foi utilizada a ANOVA considerando um nivel de significancia de 5%.
+O valor p para voter_category é extremamente pequeno (< 2e-16), indicando que há uma diferença significativa entre as médias dos grupos de voter_category. Isso significa que a variável voter_category tem um efeito significativo sobre a variável resposta.
+
+![image](https://github.com/mateusengq/DESAFIOS_CLUBE/assets/36772525/32321a02-4856-41cf-b3d0-894c4e8bcc49)
+
+Em seguida, foi realizado um teste de Tukey para identificar os grupos que diferem entre si e os resultados indicam que há diferenças significativas entre todas as categorias de voto em termos de idade média. 
+- As pessoas que votam "rarely/never" são significativamente mais jovens do que as que votam "always".
+- As pessoas que votam "sporadic" são significativamente mais velhas do que as que votam "rarely/never", mas ainda são um pouco mais jovens do que as que votam "always".
+
+![image](https://github.com/mateusengq/DESAFIOS_CLUBE/assets/36772525/5dd63bcc-40fb-4831-9d72-69f1de86f1cc)
+
+
+### PARTE 4 - ESTRATÉGIAS ELEITORAIS 
+Se você fizesse parte da equipe de marketing do partido republicano, qual público você deveria mirar para atrair mais votos para o partido? 
+
+#### a) Foco nas Mulheres Sem Partido
+
+Minha primeira abordagem seria direcionar esforços para as pessoas que não possuem partido, especialmente para as mulheres, pois representam um número significativo de eleitoras. Além disso, como não declaram um partido, podem ser mais propensas a "ouvirem" campanhas de qualquer um dos lados. 
+Em segundo lugar, focaria no público que se declara independente, tentando 'fisgar' votos "envergonhados". Provavelmente, há uma parcela da população que se declara "independente" ou "sem partido" por receio de emitir a verdadeira intenção de voto.
+
+#### b) Comunicação com os Jovens
+
+Melhorar a comunicação com os jovens (abaixo de 30 anos). O partido republicano apresenta baixa adesão entre os mais jovens, ao contrário do partido democrata. Uma sugestão seria direcionar campanhas específicas comunicando **diretamente** com esse público.
+
+### c) Foco nos Votantes Esporádicos
+
+Por fim, direcionar campanhas para os votantes esporádicos, principalmente para o público acima de 51 anos, onde os republicanos possuem uma melhor atuação dentre as faixas etárias analisadas.
+
+
+---------
+**## Apenas teste - Excluir**
+
+**Numeros absolutos**
+
+|                  | Abaixo de 30 anos | De 31 a 50 anos | Acima de 51 anos | Total |
+|------------------|-------------------|-----------------|------------------|-------|
+| **Always**       | 344               | 182             | 1285             | 1811  |
+| **Rarely/Never** | 471               | 514             | 466              | 1451  |
+| **Sporadic**     | 174               | 907             | 1493             | 2574  |
+| **Total**        | 989               | 1603            | 3244             | 5836  |
+
+**Proporcao**
+|                  | Abaixo de 30 anos | De 31 a 50 anos | Acima de 51 anos |
+|------------------|-------------------|-----------------|------------------|
+| **Always**       | 6%                | 3%              | 22%              |
+| **Rarely/Never** | 8%                | 9%              | 8%               |
+| **Sporadic**     | 3%                | 16%             | 26%              |
+
+Para tentar responder a essa pergunta, foi adotado o teste qui-quadrado para verificar se existe uma associacao signifitiva entre as variaveis categoricas.
+Foi realizado um teste Qui-quadrado apenas para avaliar os dados.
+- X2: 881.66
+- Graus de liberdade (df): 4
+- p-valor: < 1.56 x 10^-18
+
+Dado o p-valor extremamente baixo, muito menor que qualquer nível de significância comum (como 0.05), rejeitamos a hipótese nula de que não há associação entre a idade e a propensão a votos.
+Portanto, existe uma associacao significativa entre a idade e a propensão a votos. ​
