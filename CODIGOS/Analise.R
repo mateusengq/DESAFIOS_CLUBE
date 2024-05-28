@@ -6,6 +6,7 @@ install.packages(
 )
 
 
+
 # pacotes
 library(tidyverse)
 library(ggtext)
@@ -13,6 +14,8 @@ library(ggthemes)
 library(hrbrthemes)
 library(ggforce)
 library(gridExtra)
+library(waffle)
+
 
 ## cores
 cor_azul_claro <- '#56b4e9'
@@ -103,7 +106,7 @@ resumo_raca <- resumo_raca %>%
   group_by(race) %>%
   mutate(first_bar = ifelse(race == 'White' , "first", "other"))
 
-# Criando o gráfico
+# 
 g3 <- ggplot(resumo_raca, aes(y = race, x = prop, fill = first_bar)) +
   geom_col(width = 0.7) +
   facet_wrap(~ race, ncol = 1, scales = "free_y") +
@@ -202,7 +205,7 @@ p2_g1 <- dados %>%
   mutate(prop = qtde / sum(qtde)) %>%
   ggplot(aes(x = Q2_1, y = qtde, fill = educ)) +
   geom_col(position = "dodge") +
-  scale_fill_manual(values = c(cor_laranja, cor_azul_claro, cor_bege)) +
+  scale_fill_manual(values = c(cor_azul, cor_verde, cor_vermelho, cor_cinza)) +
   coord_flip() +
   labs(
     title = "Importancia de Votar e a Escolaridade",
@@ -239,7 +242,7 @@ p2_g2 <- dados %>%
   mutate(prop = qtde / sum(qtde)) %>%
   ggplot(aes(x = educ, y = qtde, fill = Q2_1)) +
   geom_col(position = "dodge") +
-  scale_fill_manual(values = c(cor_azul, cor_verde, cor_vermelho, cor_cinza)) +
+  scale_fill_manual(values = c(cor_laranja, cor_azul_claro, cor_bege, cor_roxo, cor_azul, cor_verde, cor_vermelho, cor_cinza)) +
   coord_flip() +
   labs(
     title = "",
@@ -404,4 +407,183 @@ dados %>%
 ## qual é a mais tolerante e a menos tolerante?
 
 
+resumo_idade_tolerancia <- dados %>%
+  select(ppage, Q2_8) %>%
+  mutate(idade = case_when(
+    ppage <= 30 ~ 'Abaixo de 30 anos',
+    ppage <= 50 ~ 'De 31 a 50 anos',
+    ppage > 50 ~ 'Acima de 51 anos',
+    TRUE ~ 'Erro'
+  )) %>%
+  select(idade, Q2_8) %>%
+  filter(Q2_8 != -1) %>%
+  group_by(idade, Q2_8) %>%
+  summarise(qtde = n(), .groups = 'drop') %>%
+  mutate(Q2_8 = recode_factor(Q2_8,
+                              `1` = "Very important",
+                              `2` = "Somewhat important",
+                              `3` = "Not so important",
+                              `4` = "Not at all important",
+                              .default = NA_character_
+  ),
+  idade = forcats::fct_relevel(idade, "Abaixo de 30 anos", "De 31 a 50 anos", "Acima de 51 anos"))
 
+
+ggplot(resumo_idade_tolerancia, aes(x = Q2_8, y = qtde, fill = Q2_8)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ idade) +#, scales = "free_x") +
+  coord_flip() +
+  scale_fill_manual(values = c(cor_laranja, cor_azul_claro, cor_bege, cor_roxo)) +
+  labs(
+    title = "Respeitar a opiniao dos outros pela fator Idade",
+    subtitle = " Respecting the opinions of those who disagree with you...",
+    x = "Nivel de Importancia",
+    y = "Quantidade de Respondentes",
+    fill = "Importance Level"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 15, face = "italic"),
+    axis.title = element_text(size = 15),
+    axis.text = element_text(size = 12),
+    legend.position = "top",
+    panel.grid.major = element_line(size = 0.5, linetype = 'dotted', color = "grey"),
+    panel.grid.minor = element_blank(),
+    axis.title.y = element_blank(),
+    strip.text = element_text(size = 12, face = 'bold')
+  )
+
+
+#### PARTE 3
+
+
+# Qual escolha partidária, incluindo pessoas sem partido (Q30), 
+# possui eleitores mais jovens? 
+
+p3_g1 <- dados %>%
+  select(ppage, Q30) %>%
+   filter(Q30 != -1) %>% # 48 CASOS %>%
+  mutate(idade = case_when(
+    ppage <= 30 ~ 'Abaixo de 30 anos',
+    ppage <= 50 ~ 'De 31 a 50 anos',
+    ppage > 50 ~ 'Acima de 51 anos',
+    TRUE ~ 'Erro'
+  ),
+  idade = forcats::fct_relevel(idade, "Abaixo de 30 anos", "De 31 a 50 anos", "Acima de 51 anos"),
+  partido = case_when(
+    Q30 == 1 ~ 'Republican',
+    Q30 == 2 ~ 'Democrat',
+    Q30 == 3 ~ 'Independent',
+    TRUE ~ "Another/No preference")) %>%
+  group_by(partido, idade) %>%
+  summarise(qtde = n(), .groups = 'drop') %>%
+ 
+  ggplot(aes(x = qtde, y = idade, fill = partido)) +
+  geom_col(position = 'dodge') +
+  scale_fill_manual(values = c(cor_bege, cor_democratas, cor_independentes, cor_republicanos)) +
+  geom_text(aes(label = qtde), 
+            size = 5, 
+            fontface = "bold", 
+            position = position_dodge(width = 0.9), 
+            vjust = 0.5, 
+            hjust = -0.2) +
+  labs(
+    title = "Partido politico e faixa etaria",
+    subtitle = " Qual escolha partidária, incluindo pessoas sem partido (Q30), possui eleitores mais jovens? ",
+    fill = "Partido"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 15, face = "italic"),
+    axis.title = element_text(size = 15),
+    axis.text = element_text(size = 12),
+    legend.position = "top",
+    panel.grid.major = element_line(size = 0.5, linetype = 'dotted', color = "grey"),
+    panel.grid.minor = element_blank(),
+    axis.title.y = element_blank(),
+    strip.text = element_text(size = 12, face = 'bold'),
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank()
+  )
+
+p3_g1
+
+
+## E qual possui mais mulheres como apoiadoras? 
+dados %>%
+  filter(Q30 != -1) %>%
+  mutate(partido = case_when(
+    Q30 == 1 ~ 'Republican',
+    Q30 == 2 ~ 'Democrat',
+    Q30 == 3 ~ 'Independent',
+    TRUE ~ "Another/No preference")) %>%
+  group_by(gender, partido) %>%
+  summarise(qtde = n(), .groups = 'drop') %>%
+  filter(gender == 'Female') %>%
+  mutate(qtde = qtde/100) %>%
+  select(partido, qtde) %>%
+  waffle(rows = 4, colors = c(
+    cor_bege, cor_democratas, cor_independentes, cor_republicanos
+  ), title = 'Apoio Feminino por partido',
+  xlab = '1 quadrado = 100 mulheres') +
+  labs(subtitle = '') +
+  theme_minimal() +
+  theme(legend.position = 'bottom',
+        legend.text = element_text(size = 15),
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 15, face = "italic"),
+    axis.title = element_text(size = 15),
+    axis.text = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title.y = element_blank()
+  )
+
+
+## Perfil do publico em termos de idade e genero
+
+dados %>%
+  filter(Q30 != -1) %>%
+  mutate(partido = case_when(
+    Q30 == 1 ~ 'Republican',
+    Q30 == 2 ~ 'Democrat',
+    Q30 == 3 ~ 'Independent',
+    TRUE ~ "Another/No preference")) %>%
+  group_by(gender, partido) %>%
+  summarise(qtde = n(), .groups = 'drop') %>%
+  pivot_wider(names_from = partido, values_from = qtde)
+
+
+dados %>%
+  select(Q30, ppage) %>%
+  filter(Q30 != -1) %>%
+  mutate(partido = case_when(
+    Q30 == 1 ~ 'Republican',
+    Q30 == 2 ~ 'Democrat',
+    Q30 == 3 ~ 'Independent',
+    TRUE ~ "Another/No preference")) %>%
+  group_by(partido) %>%
+  summarise(median = median(ppage),
+            media = mean(ppage),
+            desvio_padrao = sd(ppage),
+            minimo = min(ppage),
+            maior = max(ppage))
+
+
+# Existe uma correlação entre idade e propensão a votos (voter_category)? 
+df_prop_voto_idade <- dados %>%
+  select(ppage, voter_category) %>%
+  mutate(idade = case_when(
+    ppage <= 30 ~ 'Abaixo de 30 anos',
+    ppage <= 50 ~ 'De 31 a 50 anos',
+    ppage > 50 ~ 'Acima de 51 anos',
+    TRUE ~ 'Erro'
+  ),
+  idade = forcats::fct_relevel(idade, "Abaixo de 30 anos", "De 31 a 50 anos", "Acima de 51 anos"))
+
+tabela <- table(df_prop_voto_idade$voter_category, df_prop_voto_idade$idade)
+teste_chiq <- chisq.test(tabela)
+
+print(teste_chiq)
