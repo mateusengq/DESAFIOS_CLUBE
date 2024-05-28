@@ -95,7 +95,7 @@ Pessoas de todas as faixas etárias consideram muito importante respeitar a opin
 
 ![Respeitar a opiniao](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/respeitar_opiniao_faixa_etaria.png)
 
-## Parte 3 - - ESCOLHAS PARTIDÁRIAS
+## Parte 3 - ESCOLHAS PARTIDÁRIAS
 ### P3.1. Qual escolha partidária, incluindo pessoas sem partido (Q30), possui eleitores mais jovens? E qual possui mais mulheres como apoiadoras?
 
 Os eleitores mais jovens (978 respondentes) destacam-se como apoiadores dos Democratas, representando 36,7%, em seguida, dos independentes correspondente a 26,2%. Nota-se que o apoio aos "Republicanos" e "Outros" apresentam valores absolutos similares.
@@ -131,6 +131,8 @@ Para avaliar se existe uma correlacao entre a idade e os grupos foi utilizada a 
 O valor p para voter_category é extremamente pequeno (< 2e-16), indicando que há uma diferença significativa entre as médias dos grupos de voter_category. Isso significa que a variável voter_category tem um efeito significativo sobre a variável resposta.
 
 ![image](https://github.com/mateusengq/DESAFIOS_CLUBE/assets/36772525/32321a02-4856-41cf-b3d0-894c4e8bcc49)
+
+![Boxplot - Idade e Categoria do eleitor](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/boxplot_categoria_eleitor.png)
 
 Em seguida, foi realizado um teste de Tukey para identificar os grupos que diferem entre si e os resultados indicam que há diferenças significativas entre todas as categorias de voto em termos de idade média. 
 - As pessoas que votam "rarely/never" são significativamente mais jovens do que as que votam "always".
