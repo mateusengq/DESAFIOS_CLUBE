@@ -587,3 +587,34 @@ tabela <- table(df_prop_voto_idade$voter_category, df_prop_voto_idade$idade)
 teste_chiq <- chisq.test(tabela)
 
 print(teste_chiq)
+
+
+##### ANOVA
+
+anova_result <- aov(ppage ~ voter_category, data = dados)
+
+# Exibir o resumo dos resultados
+summary(anova_result)
+
+
+# teste de Tukey
+tukey_result <- TukeyHSD(anova_result)
+tukey_result
+
+# grafico
+ggplot(dados, aes(x = voter_category, y = ppage)) +
+  geom_jitter(width = 0.2, alpha = 0.6, color = 'black') +
+  geom_boxplot(alpha = 0.3, fill = cor_cinza, outlier.shape = NA) +
+  labs(title = "Boxplot - Idade por Categoria do eleitor",
+       x = "",
+       y = "Idade") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+    axis.title.x = element_text(size = 14, face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
+    axis.text.x = element_text(size = 12),
+    axis.text.y = element_text(size = 12)
+  ) +
+  scale_x_discrete(labels = c("Always" = "Sempre", "Rarely/Never" = "Raramente/Nunca", "Sporadic" = "Esporádico"))
+
