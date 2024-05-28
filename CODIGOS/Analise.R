@@ -397,3 +397,11 @@ dados %>%
     panel.grid.minor = element_blank(),
     axis.title.y = element_blank(),
     strip.text = element_text(size = 12, face = 'bold'))
+
+
+## Considerando que respeitar a opinião dos outros (Q2_8) é um indício de tolerância, 
+## ao compararmos as gerações de 18-30 anos, 31-50 anos e +51, 
+## qual é a mais tolerante e a menos tolerante?
+
+
+
