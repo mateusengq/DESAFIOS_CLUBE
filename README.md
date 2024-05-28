@@ -26,7 +26,8 @@ No gráfico, é possível notar a presença de duas concentrações da variável
 ![Histograma Idade](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/histograma_variavel_idade.png)
 
 #### P1.1.2. Genero
-Em relacao ao genero, 49,5% sao mulheres.
+Em relacao ao genero, **49,5% sao mulheres**.
+
 ![Genero](https://github.com/mateusengq/DESAFIOS_CLUBE/blob/main/GRAFICOS/genero.png)
 
 
