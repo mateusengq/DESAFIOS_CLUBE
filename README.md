@@ -151,7 +151,7 @@ Em segundo lugar, focaria no público que se declara independente, tentando 'fis
 
 Melhorar a comunicação com os jovens (abaixo de 30 anos). O partido republicano apresenta baixa adesão entre os mais jovens, ao contrário do partido democrata. Uma sugestão seria direcionar campanhas específicas comunicando **diretamente** com esse público.
 
-### c) Foco nos Votantes Esporádicos
+#### c) Foco nos Votantes Esporádicos
 
 Por fim, direcionar campanhas para os votantes esporádicos, principalmente para o público acima de 51 anos, onde os republicanos possuem uma melhor atuação dentre as faixas etárias analisadas.
 
